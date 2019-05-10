@@ -139,10 +139,6 @@ function matchCards(openCards) {
             closeCards();
         }
     }
-    else if(openCards.length>1){
-        console.log(`Inside Else if , length = `+openCards.length);
-        closeCards();
-    }
     return openCards;
 }
 
