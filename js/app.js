@@ -134,8 +134,6 @@ function matchCards(openCards) {
                     matches++;
         }
         else {
-
-            console.log(`Inside Else , length = `+openCards.length);
             closeCards();
         }
     }
@@ -153,7 +151,6 @@ function closeCards() {
 
 function startTimer() {
     startTime = Math.floor(Date.now()/1000);
-    console.log(startTime);
     timeInc = setInterval(countTime, 1000);
 }
 
@@ -184,23 +181,19 @@ function incrementMoves () {
 
 function endGame() {
     matchInc = setInterval(checkMatches,1000);
-    console.log(matchInc);
     closepopup();
 
 }
 
 function closepopup() {
     let closeBtn = document.querySelector(`.close-btn`);
-    // console.log("popup buttons = "+popupBtns);
         closeBtn.addEventListener(`click`, function() {
-            console.log("inside close popup");
             document.querySelector(`.modal`).setAttribute(`style`,`display: none`);
         });
 }
 
 function checkMatches() {
     if(matches==8) {
-        console.log(`Game Ended`);
         clearInterval(matchInc);
         stopTimer();
         document.querySelector(`.modal`).setAttribute(`style`,`display: block`);
@@ -227,7 +220,6 @@ function restart() {
     document.querySelector(`.time-counter`).innerHTML = ` 00:00`;
     document.querySelector(`.moves`).innerHTML = ` ${moveCounter}`;
     let gamecards = document.querySelectorAll(`.card`);
-    console.log(gamecards);
     for(card of gamecards) {
         card.classList.remove("match","open","show");
     }
@@ -275,9 +267,7 @@ function assignStars() {
 
 
 function restartgame() {
-    console.log("restart game");
     let restartBtn = document.querySelector(".restart");
-    console.log(restartBtn);
     restartBtn.addEventListener("click",restart);
     let restartpopupBtn = document.querySelector(`.restart-btn`);
     restartpopupBtn.addEventListener(`click`, function() {

@@ -40,7 +40,7 @@ h1 {
 
 .deck {
     width: 660px;
-    min-height: 680px;
+    height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
@@ -140,7 +140,7 @@ h1 {
 }
 
  .modal {
-  display: none;/* Hidden by default */
+  display: block;/* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 100; /* Sit on top */
   padding-top: 200px; /* Location of the box */
@@ -267,10 +267,46 @@ h1 {
 
 }
 
-@media screen and (max-width: 660px){
+
+@media screen and (min-width: 200px) and (max-width: 380px) {
+
+    .deck .card {
+        width: 45px;
+        height: 45px;
+        padding: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 3px;
+    }
+
     .deck {
         width: 70%;
-        height: 20%;
+        height: 50%;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0 0 0;
+    }
+
+
+
+   .modal-content {
+     background-color: #fefefe;
+     margin: auto;
+     width: 250px;
+     height: 200px;
+     border-radius: 5px;
+     justify-content: center;
+     align-items: center;
+   }
+
+
+}
+
+@media screen and (min-width: 381px)and (max-width: 660px){
+    .deck {
+        width: 70%;
+        height: 50%;
         padding: 10px;
         display: flex;
         flex-wrap: wrap;
@@ -278,17 +314,12 @@ h1 {
     }
 
     .deck .card {
-        width: 20%;
-        height: 70px;
-        padding: 10px;
+        width: 60px;
+        height: 60px;
+        padding: 8px;
         display: flex;
         flex-wrap: wrap;
-        margin: 5px;
-    }
-
-    .modal-content {
-        width: 70%;
-        height: 100%;
+        margin: 3px;
     }
 
     .popup-header {
@@ -302,3 +333,15 @@ h1 {
     .popup-text .text-head {
         font-size: 12px;
     }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      width: 350px;
+      height: 300px;
+      border-radius: 5px;
+      justify-content: center;
+      align-items: center;
+    }
+
+}
