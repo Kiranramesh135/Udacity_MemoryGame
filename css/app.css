@@ -132,6 +132,13 @@ h1 {
     margin:10px;
 }
 
+.restart:hover,
+.restart:focus,
+.fa-repeat:hover,
+.fa-repeat:focus {
+    cursor: pointer;
+}
+
  .modal {
   display: none;/* Hidden by default */
   position: fixed; /* Stay in place */
@@ -168,6 +175,7 @@ h1 {
     border-top-right-radius: 5px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* The Close Button */
@@ -208,20 +216,56 @@ h1 {
     justify-content: center;
     align-items: center;
     font-size: 15px;
+    text-align: center;
 }
 
 .popup-header {
     color: #fff;
-    width: 95%;
+    width: 100%;
     text-align: center;
     font-size: 24px;
+    margin: auto;
+    /* height: 100 */
 }
 
 .popup-buttons {
-    height: 25%;
-    justify-content: flex-end;
+    height: 20%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
+.popup-btn {
+    width: 50%;
+    height: 25px;
+    flex-direction: row;
+    /* color: red; */
+    background: #02ccba;
+    border-radius: 5px;
+    border-color: #02ccba;
+    /* box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5); */
+    font-weight: bold;
+    text-decoration-color: #fff;
+    color: #fff;
+}
+
+.popup-btn:hover,
+.popup-btn:focus {
+    cursor: pointer;
+}
+
+.btn-container {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    float:left;
+    margin: 0px;
+    justify-content: center;
+
+}
 
 @media screen and (max-width: 660px){
     .deck {

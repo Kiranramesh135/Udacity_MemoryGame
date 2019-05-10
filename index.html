@@ -10,23 +10,21 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-
     <div class="container">
         <header>
             <h1>Matching Game</h1>
         </header>
 
         <section class="score-panel">
-
-            <div class="col">
+            <div class="col col-stars">
                 <ul class="stars">
-            		<li><i class="fa fa-star"></i></li>
-            		<li><i class="fa fa-star"></i></li>
-            		<li><i class="fa fa-star"></i></li>
+            		<li id="star1"><i class="fa fa-star" ></i></li>
+            		<li id="star2"><i class="fa fa-star" ></i></li>
+            		<li id="star3"><i class="fa fa-star" ></i></li>
             	</ul>
             </div>
             <div class="col">
-                Moves:  <span class="moves">0</span>
+                Moves:<span class="moves"> 0</span>
             </div>
             <div class="col">
                 Timer:<span class="time-counter"> 00:00</span>
@@ -92,13 +90,20 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="popup-header">Congratulations !!!</h1>
-                <span class="close">&times;</span>
             </div>
             <div class="popup-content">
                 <p class="text-head">You finished the game</p>
-                <p class="popup-text">Some text in the Modal...</p>
+                <p class="popup-text">...</p>
             </div>
-            <div class="popup-buttons"></div>
+            <div class="popup-btns">
+                    <div class="btn-container">
+                        <button class="popup-btn restart-btn ">Restart</button>
+
+                    </div>
+                    <div class="btn-container">
+                        <button class="popup-btn close-btn">Close</button>
+                    </div>
+            </div>
             </div>
         </div>
     </div>
