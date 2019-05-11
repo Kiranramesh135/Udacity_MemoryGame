@@ -47,10 +47,10 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
 
+// Arranging the card in the deck
 function arrangeCards() {
     shuffledCards = shuffle(cards);
     const fragment = document.createDocumentFragment();
@@ -67,6 +67,8 @@ function arrangeCards() {
     }
     cardcounter = 0;
 
+    // Removing the existing cards in the deck and re populating the shuffled
+    // cards
     const deck = document.querySelector(`.deck`);
     deck.remove();
     const containerDiv = document.querySelector(`.container`);
@@ -76,14 +78,6 @@ function arrangeCards() {
     const newDeck = document.querySelector(`.deck`);
     newDeck.appendChild(fragment);
 }
-
-
-function sleep(delay) {
-    var start = new Date().getTime();
-    while (new Date().getTime() < start + delay);
-}
-
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -96,8 +90,12 @@ function sleep(delay) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
+
+// Starting the memory game
 function startGame() {
     let gamecards = document.querySelectorAll(`.card`);
+
+    // Adding click event for all the cards present in the deck
     for(let card of gamecards) {
         card.addEventListener(`click`,function() {
             if(!card.classList.contains(`open`) && !card.classList.contains(`show`)) {
@@ -117,21 +115,22 @@ function startGame() {
                     }
                 }
                 incrementMoves();
-                assignStars();
+                reduceStars();
                 openCards = matchCards(openCards);
             }
         });
     }
 }
 
+// Comparing two cards that are clicked and matching them if they are same
 function matchCards(openCards) {
     if(openCards.length==2) {
         if((openCards[0].getAttribute(`data-card`)==openCards[1].getAttribute(`data-card`))
-                    &&(openCards[0].getAttribute(`index`)!==openCards[1].getAttribute(`index`))) {
-                    openCards[0].classList.add(`match`);
-                    openCards[1].classList.add(`match`);
-                    openCards.splice(0,2);
-                    matches++;
+            &&(openCards[0].getAttribute(`index`)!==openCards[1].getAttribute(`index`))) {
+            openCards[0].classList.add(`match`);
+            openCards[1].classList.add(`match`);
+            openCards.splice(0,2);
+            matches++;
         }
         else {
             closeCards();
@@ -140,6 +139,7 @@ function matchCards(openCards) {
     return openCards;
 }
 
+// Closing open cards those are not similar
 function closeCards() {
     setTimeout(function() {
         openCards.forEach(function(card) {
@@ -149,6 +149,7 @@ function closeCards() {
     }, 450);
 }
 
+// Starting the timer
 function startTimer() {
     startTime = Math.floor(Date.now()/1000);
     timeInc = setInterval(countTime, 1000);
@@ -163,6 +164,7 @@ function stopTimer() {
     clearInterval(timeInc);
 }
 
+// Counting time elapsed
 function countTime() {
     let now = Math.floor(Date.now()/1000);
     timeDiff = now - startTime;
@@ -173,18 +175,20 @@ function countTime() {
     document.querySelector(`.time-counter`).innerHTML = ` ${minutes}:${seconds}`;
 }
 
-function incrementMoves () {
+// Counting the number of moves the uses takes
+function incrementMoves() {
     moveCounter++
     document.querySelector(`.moves`).innerHTML = ` ${moveCounter}`;
 
 }
 
+// Ending the game when number of matches equal to 8
 function endGame() {
     matchInc = setInterval(checkMatches,1000);
     closepopup();
-
 }
 
+//Closing the displayed popup
 function closepopup() {
     let closeBtn = document.querySelector(`.close-btn`);
         closeBtn.addEventListener(`click`, function() {
@@ -192,6 +196,8 @@ function closepopup() {
         });
 }
 
+
+// Checking number of matches and bringing up the popup
 function checkMatches() {
     if(matches==8) {
         clearInterval(matchInc);
@@ -200,15 +206,16 @@ function checkMatches() {
         let stars = document.querySelectorAll(".fa-star").length;
         let text = document.querySelector(".popup-text");
         if(minutes>=1){
-            text.innerHTML = `In ${minutes} minutes, ${seconds} seconds with star rating of ${stars} stars.`
+            text.innerHTML = `In ${minutes} minutes, ${seconds} seconds with star rating of ${stars}.`
         }
         else {
-            text.innerHTML = `In ${seconds} seconds with star rating of ${stars} stars.`
+            text.innerHTML = `In ${seconds} seconds with star rating of ${stars}.`
         }
-
     }
 }
 
+// Restartign the game by resetting the number of moves, timer and by closing
+// the cards back
 function restart() {
     matches = 0;
     clickCounter = 0;
@@ -228,13 +235,12 @@ function restart() {
     endGame();
 }
 
+// Resetting the stars to original number that is three
 function resetStars() {
     let stars = document.querySelector(`.stars`);
     stars.parentElement.removeChild(stars);
     let ul = document.createElement(`ul`);
     ul.classList.add(`stars`);
-
-
     for(let j=1;j<=3;j++) {
         let li = document.createElement(`li`);
         li.setAttribute(`id`,`star${j}`);
@@ -243,13 +249,12 @@ function resetStars() {
         li.appendChild(i);
         ul.appendChild(li);
     }
-
     let starsDiv = document.querySelector(`.col-stars`);
     starsDiv.appendChild(ul);
 }
 
-
-function assignStars() {
+// Reducing the number of stars as the number of moves increases
+function reduceStars() {
     let starList = document.querySelectorAll("fa-star");
     if(moveCounter==30) {
         let star1 = document.querySelector("#star1");
@@ -259,13 +264,9 @@ function assignStars() {
         let star2 = document.querySelector("#star2");
         star2.parentElement.removeChild(star2);
     }
-    else if(moveCounter==50) {
-        let star3 = document.querySelector("#star3");
-        star3.parentElement.removeChild(star3);
-    }
 }
 
-
+// Restarting the game when the user clicks restart button
 function restartgame() {
     let restartBtn = document.querySelector(".restart");
     restartBtn.addEventListener("click",restart);

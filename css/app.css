@@ -68,7 +68,6 @@ h1 {
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
-    /* backface-visibility: hidden; */
 }
 
 .deck .card.open {
@@ -90,7 +89,6 @@ h1 {
 /*
  * Styles for the Score Panel
  */
-
 .score-panel {
     text-align: left;
     width: 100%;
@@ -140,7 +138,7 @@ h1 {
 }
 
  .modal {
-  display: block;/* Hidden by default */
+  display: none;/* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 100; /* Sit on top */
   padding-top: 200px; /* Location of the box */
@@ -176,25 +174,6 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-/* The Close Button */
-.close {
-  color: #fff;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  padding-right: 10px;
-  align: right;
-  justify-content: flex-end;
-  width: 5%;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .popup-content {
@@ -234,14 +213,12 @@ h1 {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .popup-btn {
     width: 50%;
     height: 25px;
     flex-direction: row;
-    /* color: red; */
     background: #02ccba;
     border-radius: 5px;
     border-color: #02ccba;
@@ -267,9 +244,7 @@ h1 {
 
 }
 
-
 @media screen and (min-width: 200px) and (max-width: 380px) {
-
     .deck .card {
         width: 45px;
         height: 45px;
@@ -288,19 +263,15 @@ h1 {
         margin: 0 0 0 0;
     }
 
-
-
    .modal-content {
-     background-color: #fefefe;
-     margin: auto;
-     width: 250px;
-     height: 200px;
-     border-radius: 5px;
-     justify-content: center;
-     align-items: center;
+        background-color: #fefefe;
+        margin: auto;
+        width: 250px;
+        height: 200px;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
    }
-
-
 }
 
 @media screen and (min-width: 381px)and (max-width: 660px){
@@ -343,5 +314,4 @@ h1 {
       justify-content: center;
       align-items: center;
     }
-
 }
