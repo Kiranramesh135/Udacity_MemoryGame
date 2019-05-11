@@ -1,20 +1,7 @@
 # Memory Game Project
 
-## Table of Contents
+Memory Game is a complete browser-based card matching game (also known as Concentration).
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+## Rules
 
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+This game if made up of 16 cards, out of which there are 8 pairs of cards. The player has to click on two cards one after the other which will flip open those cards to reveal the image. If the two cards match with each other, they stay open, if they do not match then they flip back again. When all the 8 pairs are matched then the game ends. There is a timer for this game, the timer starts once the player clicks the first card. Star ratings are assigned based on the numbers of moves the player takes to complete the game.

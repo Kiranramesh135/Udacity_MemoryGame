@@ -206,10 +206,10 @@ function checkMatches() {
         let stars = document.querySelectorAll(".fa-star").length;
         let text = document.querySelector(".popup-text");
         if(minutes>=1){
-            text.innerHTML = `In ${minutes} minutes, ${seconds} seconds with star rating of ${stars}.`
+            text.innerHTML = `With star rating of ${stars}, you took ${moveCounter} moves in ${minutes} minutes, ${seconds} seconds.`;
         }
         else {
-            text.innerHTML = `In ${seconds} seconds with star rating of ${stars}.`
+            text.innerHTML = `With star rating of ${stars}, you took ${moveCounter} moves in ${seconds} seconds.`;
         }
     }
 }
