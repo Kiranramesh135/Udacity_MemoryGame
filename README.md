@@ -18,7 +18,7 @@ This game if made up of 16 cards, out of which there are 8 pairs of cards. The p
 This project consists of the following assets:
 
 * **index.html**  - contains the game's html structure.
-* **main.css** - contains the game's board styling.
+* **app.css** - contains the game's board styling.
 * **app.js** - contains all the board actions & logic.
 
 ## Credits
