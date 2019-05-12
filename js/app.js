@@ -29,6 +29,7 @@
  let minutes;
  let seconds;
  let starCount;
+ let flipCounter = 0;
 
 /*
  * Display the cards on the page
@@ -114,6 +115,7 @@ function startGame() {
                         }
                     }
                 }
+                flipCounter++;
                 reduceStars();
                 openCards = matchCards(openCards);
             }
@@ -256,11 +258,11 @@ function resetStars() {
 // Reducing the number of stars as the number of moves increases
 function reduceStars() {
     let starList = document.querySelectorAll("fa-star");
-    if(moveCounter==15) {
+    if(flipCounter==30) {
         let star1 = document.querySelector("#star1");
         star1.parentElement.removeChild(star1);
     }
-    else if(moveCounter==20) {
+    else if(flipCounter==40) {
         let star2 = document.querySelector("#star2");
         star2.parentElement.removeChild(star2);
     }
