@@ -114,7 +114,6 @@ function startGame() {
                         }
                     }
                 }
-                incrementMoves();
                 reduceStars();
                 openCards = matchCards(openCards);
             }
@@ -125,6 +124,7 @@ function startGame() {
 // Comparing two cards that are clicked and matching them if they are same
 function matchCards(openCards) {
     if(openCards.length==2) {
+        incrementMoves();
         if((openCards[0].getAttribute(`data-card`)==openCards[1].getAttribute(`data-card`))
             &&(openCards[0].getAttribute(`index`)!==openCards[1].getAttribute(`index`))) {
             openCards[0].classList.add(`match`);
@@ -256,11 +256,11 @@ function resetStars() {
 // Reducing the number of stars as the number of moves increases
 function reduceStars() {
     let starList = document.querySelectorAll("fa-star");
-    if(moveCounter==30) {
+    if(moveCounter==15) {
         let star1 = document.querySelector("#star1");
         star1.parentElement.removeChild(star1);
     }
-    else if(moveCounter==40) {
+    else if(moveCounter==20) {
         let star2 = document.querySelector("#star2");
         star2.parentElement.removeChild(star2);
     }
